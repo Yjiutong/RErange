@@ -1,8 +1,8 @@
 # RErange — EPUB 小说重排与净化 Skill
 
 把顺序混乱的小说 EPUB 按章节编号重排，并清除广告网址、短链接、推广文字和纯广告页，
-输出结构完好、可纯净阅读的新 EPUB。封装为一个 Agent Skill，任意兼容 Skill 的
-AI Agent（WorkBuddy、Claude Code 等）安装后即可用自然语言触发。
+输出结构完好、可纯净阅读的新 EPUB。封装为一个 Agent Skill（触发词 **RErange**），
+任意兼容 Skill 的 AI Agent（WorkBuddy、Claude Code 等）安装后即可用自然语言触发。
 
 - 零依赖：单个 Python 脚本，仅用标准库（Python 3.8+），无需安装第三方包
 - 安全：默认不修改原文件，输出 `书名_cleaned.epub`；输出前逐文档 XML 完整性校验
@@ -21,15 +21,15 @@ AI Agent（WorkBuddy、Claude Code 等）安装后即可用自然语言触发。
 
 ```
 RErange/
-├── epub-reorder-clean/          # Skill 源码（即 skill 目录本身）
-│   ├── SKILL.md                 # 技能定义（name + description + 工作流）
+├── rerange/                     # Skill 源码（即 skill 目录本身）
+│   ├── SKILL.md                 # 技能定义（name: rerange，触发词 RErange）
 │   ├── scripts/
 │   │   └── epub_reorder_clean.py # 全部逻辑，纯标准库
 │   ├── references/              # 排序规则 / 广告规则参考文档
 │   ├── agents/openai.yaml       # UI 元数据
 │   └── evals/evals.json         # 评测用例
 ├── dist/
-│   └── epub-reorder-clean.skill # 可安装的 Skill 包（24 KB）
+│   └── rerange.skill            # 可安装的 Skill 包（24 KB）
 ├── tests/                       # 测试 EPUB 生成器 + 31 条断言端到端测试
 ├── LICENSE                      # MIT
 └── README.md
@@ -42,20 +42,20 @@ RErange/
 ```bash
 # Linux / macOS / Git Bash
 git clone --depth 1 https://github.com/Yjiutong/RErange.git /tmp/RErange
-cp -r /tmp/RErange/epub-reorder-clean ~/.workbuddy/skills/
+cp -r /tmp/RErange/rerange ~/.workbuddy/skills/
 ```
 
 ```powershell
 # Windows PowerShell
 git clone --depth 1 https://github.com/Yjiutong/RErange.git $env:TEMP\RErange
-Copy-Item -Recurse "$env:TEMP\RErange\epub-reorder-clean" "$HOME\.workbuddy\skills\"
+Copy-Item -Recurse "$env:TEMP\RErange\rerange" "$HOME\.workbuddy\skills\"
 ```
 
 没有 git 时可直接下载压缩包：
 
 ```bash
 curl -L https://github.com/Yjiutong/RErange/archive/refs/heads/main.tar.gz | tar -xz
-cp -r RErange-main/epub-reorder-clean ~/.workbuddy/skills/
+cp -r RErange-main/rerange ~/.workbuddy/skills/
 ```
 
 ### WorkBuddy（项目级，随仓库共享给团队）
@@ -63,17 +63,17 @@ cp -r RErange-main/epub-reorder-clean ~/.workbuddy/skills/
 ```bash
 git clone --depth 1 https://github.com/Yjiutong/RErange.git /tmp/RErange
 mkdir -p .workbuddy/skills
-cp -r /tmp/RErange/epub-reorder-clean .workbuddy/skills/
+cp -r /tmp/RErange/rerange .workbuddy/skills/
 ```
 
 ### 其他兼容 Skill 的 Agent（Claude Code 等）
 
-目录约定相同，把 `epub-reorder-clean/` 复制到对应 skills 目录即可，例如
+目录约定相同，把 `rerange/` 复制到对应 skills 目录即可，例如
 Claude Code 的用户级目录 `~/.claude/skills/`：
 
 ```bash
 git clone --depth 1 https://github.com/Yjiutong/RErange.git /tmp/RErange
-cp -r /tmp/RErange/epub-reorder-clean ~/.claude/skills/
+cp -r /tmp/RErange/rerange ~/.claude/skills/
 ```
 
 ### 安装 .skill 包（WorkBuddy 技能面板上传）
@@ -81,23 +81,24 @@ cp -r /tmp/RErange/epub-reorder-clean ~/.claude/skills/
 下载仓库中的打包产物，在「技能 → 添加技能 → 上传技能」中选择即可：
 
 ```
-https://github.com/Yjiutong/RErange/raw/main/dist/epub-reorder-clean.skill
+https://github.com/Yjiutong/RErange/raw/main/dist/rerange.skill
 ```
 
-安装完成后无需额外配置，对 Agent 说「把这本 EPUB 章节重排并清掉广告」即可触发。
+安装完成后无需额外配置，对 Agent 说「**用 RErange 把这本 EPUB 章节重排并清掉广告**」
+或直接描述需求（章节乱序 / 有广告）即可触发。
 
 ## 使用
 
 自然语言触发（安装 Skill 后）：
 
-> 这本《下山》EPUB 章节顺序全乱了，帮我按章节顺序重排，再把里面的广告网址删掉
+> 用 RErange 处理这本《下山》EPUB，章节顺序全乱了，里面的广告网址也删掉
 
 也可以直接调用脚本：
 
 ```bash
-python epub-reorder-clean/scripts/epub_reorder_clean.py 输入.epub -o 输出.epub
-python epub-reorder-clean/scripts/epub_reorder_clean.py 输入.epub --dry-run   # 只看不改
-python epub-reorder-clean/scripts/epub_reorder_clean.py --help               # 全部选项
+python rerange/scripts/epub_reorder_clean.py 输入.epub -o 输出.epub
+python rerange/scripts/epub_reorder_clean.py 输入.epub --dry-run   # 只看不改
+python rerange/scripts/epub_reorder_clean.py --help               # 全部选项
 ```
 
 ## 开发与测试

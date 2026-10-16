@@ -1,5 +1,5 @@
 {
-  "skill": "epub-reorder-clean",
+  "skill": "rerange",
   "needs_human_review": false,
   "cases": [
     {
@@ -19,6 +19,18 @@
       "prompt": "清理这本小说 EPUB 里的广告链接和推广文字，我要纯净阅读",
       "trigger_expected": true,
       "pass_criteria": [
+        "Uses the Skill's documented workflow and bundled resources",
+        "Produces a verifiable result or clearly identifies the blocker"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "happy-03",
+      "kind": "happy",
+      "prompt": "用 RErange 处理这本下载的小说 EPUB，章节是乱的，还有广告",
+      "trigger_expected": true,
+      "pass_criteria": [
+        "Recognizes RErange as the trigger word and uses this Skill",
         "Uses the Skill's documented workflow and bundled resources",
         "Produces a verifiable result or clearly identifies the blocker"
       ],

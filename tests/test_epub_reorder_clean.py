@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 TESTS = Path(__file__).resolve().parent
-SCRIPT = TESTS.parent / "epub-reorder-clean" / "scripts" / "epub_reorder_clean.py"
+SCRIPT = TESTS.parent / "rerange" / "scripts" / "epub_reorder_clean.py"
 PY = sys.executable
 
 PASSED = []

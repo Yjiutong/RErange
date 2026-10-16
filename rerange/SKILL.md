@@ -1,11 +1,11 @@
 ---
-name: epub-reorder-clean
+name: rerange
 version: 1.0.0
-display_name: EPUB 小说重排与净化
-display_name_en: EPUB Novel Reorder & Clean
-description: 小说 EPUB 章节乱序重排与广告净化。按章节号（第X章、Chapter N、123.）重排阅读顺序，删除广告网址、短链接、推广文字与纯广告页，同步修正目录和元数据，输出可纯净阅读的 EPUB。适用于用户提供章节顺序混乱或夹带广告的小说 EPUB 需要重排、清理的场景。
-description_zh: 小说 EPUB 章节乱序重排与广告净化。按章节号（第X章、Chapter N、123.）重排阅读顺序，删除广告网址、短链接、推广文字与纯广告页，同步修正目录和元数据，输出可纯净阅读的 EPUB。适用于用户提供章节顺序混乱或夹带广告的小说 EPUB 需要重排、清理的场景。
-description_en: Reorder scrambled novel EPUB chapters by chapter number and strip advertisement URLs, short links and promo text for clean reading. Use when the user provides a novel EPUB whose chapters are out of order or that contains ad links, short links or pirate-site boilerplate.
+display_name: RErange · EPUB 小说重排与净化
+display_name_en: RErange · EPUB Novel Reorder & Clean
+description: 小说 EPUB 章节乱序重排与广告净化，触发词 RErange。按章节号（第X章、Chapter N、123.）重排阅读顺序，删除广告网址、短链接、推广文字与纯广告页，同步修正目录和元数据，输出可纯净阅读的 EPUB。适用于用户提供章节顺序混乱或夹带广告的小说 EPUB 需要重排、清理的场景，或用户提到 RErange 时。
+description_zh: 小说 EPUB 章节乱序重排与广告净化，触发词 RErange。按章节号（第X章、Chapter N、123.）重排阅读顺序，删除广告网址、短链接、推广文字与纯广告页，同步修正目录和元数据，输出可纯净阅读的 EPUB。适用于用户提供章节顺序混乱或夹带广告的小说 EPUB 需要重排、清理的场景，或用户提到 RErange 时。
+description_en: Reorder scrambled novel EPUB chapters by chapter number and strip advertisement URLs, short links and promo text for clean reading. Trigger word RErange. Use when the user provides a novel EPUB whose chapters are out of order or that contains ad links, short links or pirate-site boilerplate, or when the user mentions RErange.
 ---
 
 # EPUB 小说重排与净化
