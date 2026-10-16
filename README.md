@@ -21,17 +21,25 @@
 
 ```
 RErange/
-├── rerange/                     # Skill 源码（即 skill 目录本身）
-│   ├── SKILL.md                 # 技能定义（name: rerange，触发词 RErange）
+├── rerange/                        # Skill 源码（即 skill 目录本身）
+│   ├── SKILL.md                    # 技能定义（name: rerange，触发词 RErange）
 │   ├── scripts/
-│   │   └── epub_reorder_clean.py # 全部逻辑，纯标准库
-│   ├── references/              # 排序规则 / 广告规则参考文档
-│   ├── agents/openai.yaml       # UI 元数据
-│   └── evals/evals.json         # 评测用例
+│   │   └── epub_reorder_clean.py   # 全部逻辑，纯标准库
+│   ├── references/                 # 排序规则 / 广告规则参考文档
+│   │   ├── ordering-rules.md
+│   │   └── ad-rules.md
+│   ├── agents/
+│   │   └── openai.yaml             # UI 元数据
+│   └── evals/
+│       └── evals.json              # 评测用例（含 RErange 触发词用例）
 ├── dist/
-│   └── rerange.skill            # 可安装的 Skill 包（24 KB）
-├── tests/                       # 测试 EPUB 生成器 + 31 条断言端到端测试
-├── LICENSE                      # MIT
+│   └── rerange.skill               # 可安装的 Skill 包（约 24 KB）
+├── tests/                          # 开发测试（不进 skill 包）
+│   ├── make_test_epubs.py          # 合成测试 EPUB 生成器
+│   └── test_epub_reorder_clean.py  # 31 条断言端到端测试
+├── .gitattributes                  # 文本文件 LF 归一化
+├── .gitignore                      # 忽略缓存 / 本地记忆 / 测试产物
+├── LICENSE                         # MIT
 └── README.md
 ```
 
