@@ -1,0 +1,7 @@
+interface:
+  display_name: "EPUB 小说重排与净化"
+  short_description: "小说 EPUB 章节乱序重排，广告网址与推广文字一键净化"
+  default_prompt: "Use $epub-reorder-clean to reorder scrambled novel chapters and strip ads from an EPUB."
+
+policy:
+  allow_implicit_invocation: true

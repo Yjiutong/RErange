@@ -1,0 +1,49 @@
+{
+  "skill": "epub-reorder-clean",
+  "needs_human_review": false,
+  "cases": [
+    {
+      "id": "happy-01",
+      "kind": "happy",
+      "prompt": "这本《下山》EPUB 章节顺序全乱了，帮我按章节顺序重排，再把里面的广告网址删掉",
+      "trigger_expected": true,
+      "pass_criteria": [
+        "Uses the Skill's documented workflow and bundled resources",
+        "Produces a verifiable result or clearly identifies the blocker"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "happy-02",
+      "kind": "happy",
+      "prompt": "清理这本小说 EPUB 里的广告链接和推广文字，我要纯净阅读",
+      "trigger_expected": true,
+      "pass_criteria": [
+        "Uses the Skill's documented workflow and bundled resources",
+        "Produces a verifiable result or clearly identifies the blocker"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "edge-01",
+      "kind": "edge",
+      "prompt": "这个 EPUB 的章节标题没有编号，只有章节名，还能重排吗？",
+      "trigger_expected": true,
+      "pass_criteria": [
+        "Uses the Skill's documented workflow and bundled resources",
+        "Produces a verifiable result or clearly identifies the blocker"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "negative-01",
+      "kind": "mis-trigger",
+      "prompt": "帮我把这本 EPUB 转换成 MOBI 格式",
+      "trigger_expected": false,
+      "pass_criteria": [
+        "Does not invoke or rely on this Skill for an unrelated nearby request"
+      ],
+      "status": "not-run"
+    }
+  ]
+}
