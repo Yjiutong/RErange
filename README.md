@@ -34,11 +34,8 @@ RErange/
 │       └── evals.json              # 评测用例（含 RErange 触发词用例）
 ├── dist/
 │   └── rerange.skill               # 可安装的 Skill 包（约 24 KB）
-├── tests/                          # 开发测试（不进 skill 包）
-│   ├── make_test_epubs.py          # 合成测试 EPUB 生成器
-│   └── test_epub_reorder_clean.py  # 31 条断言端到端测试
 ├── .gitattributes                  # 文本文件 LF 归一化
-├── .gitignore                      # 忽略缓存 / 本地记忆 / 测试产物
+├── .gitignore                      # 忽略缓存 / 本地记忆 / 本地测试
 ├── LICENSE                         # MIT
 └── README.md
 ```
@@ -107,13 +104,6 @@ https://github.com/Yjiutong/RErange/raw/main/dist/rerange.skill
 python rerange/scripts/epub_reorder_clean.py 输入.epub -o 输出.epub
 python rerange/scripts/epub_reorder_clean.py 输入.epub --dry-run   # 只看不改
 python rerange/scripts/epub_reorder_clean.py --help               # 全部选项
-```
-
-## 开发与测试
-
-```bash
-python tests/make_test_epubs.py tests/.debug   # 生成合成测试 EPUB
-python tests/test_epub_reorder_clean.py        # 31 条断言端到端测试
 ```
 
 ## License

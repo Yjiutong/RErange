@@ -8,6 +8,9 @@ venv/
 # 本地 agent 工作记忆（仅本机保留，不进仓库）
 .workbuddy/
 
+# 开发测试（仅本机保留，不进公开仓库）
+tests/
+
 # 测试产物
 tests/.debug/
 tests/.forward/
